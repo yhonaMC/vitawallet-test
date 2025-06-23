@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-sidebar {
+  background-color: #0a667f;
+  background-image: url('./assets/images/dollar.png'),
+    linear-gradient(180deg, #0a667f 0%, #0a667f 100%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom; /* Coloca la imagen en la parte inferior */
+}
