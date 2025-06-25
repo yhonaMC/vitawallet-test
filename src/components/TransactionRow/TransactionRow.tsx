@@ -1,12 +1,6 @@
 import { memo } from 'react'
 import clsx from 'clsx'
-
-interface TransactionRowProps {
-  label: string
-  value: string
-  variant?: 'default' | 'highlight'
-  isLast?: boolean
-}
+import type { TransactionRowProps } from './TrasactionRow.type'
 
 const VARIANT_STYLES = {
   default: 'text-black-100 font-semibold text-base',

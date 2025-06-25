@@ -1,12 +1,7 @@
 import { memo } from 'react'
 import EyeOpen from '../../assets/icons/eyeOpenIcon.svg'
 import EyeClose from '../../assets/icons/eyeCloseIcon.svg'
-
-interface PasswordToggleProps {
-  isVisible: boolean
-  onToggle: () => void
-  className?: string
-}
+import type { PasswordToggleProps } from './PasswordToggle.type'
 
 const PasswordToggle = memo<PasswordToggleProps>(
   ({ isVisible, onToggle, className = '' }) => {

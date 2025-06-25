@@ -11,7 +11,7 @@ export type {
   InputEventProps,
   InputVariant,
   InputSize
-} from './types'
+} from './Input.types'
 
 // Hook exports
 export { usePasswordVisibility } from '../../hooks/usePasswordVisibility'

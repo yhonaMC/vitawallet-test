@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
 import { TransactionRow } from '../TransactionRow/TransactionRow'
-import type { CardTransactionsProps } from './type'
+import type { CardTransactionsProps } from './CardTransactions.type'
 import { CARD_STYLES, TRANSACTION_LABELS } from '../../constants'
 import { useTransactionCalculations } from '../../hooks'
 

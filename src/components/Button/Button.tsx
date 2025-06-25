@@ -1,5 +1,5 @@
 import { memo, forwardRef } from 'react'
-import type { ButtonProps } from './types'
+import type { ButtonProps } from './Button.types'
 import { useButtonStyles } from '../../hooks/useButtonStyles'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 

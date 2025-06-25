@@ -1,12 +1,5 @@
 import { memo } from 'react'
-
-interface ErrorMessageProps {
-  message: string | null
-  onClose?: () => void
-  className?: string
-  variant?: 'inline' | 'banner'
-  showIcon?: boolean
-}
+import type { ErrorMessageProps } from './ErrorMessage.type'
 
 const ErrorMessage = memo<ErrorMessageProps>(
   ({

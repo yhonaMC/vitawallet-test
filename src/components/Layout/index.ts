@@ -1,2 +1,2 @@
 export * from './Layout'
-export * from './type'
+export * from './Layout.type'

@@ -1,9 +1,5 @@
 import { memo } from 'react'
-
-interface LogoutButtonProps {
-  onLogout: () => void
-  className?: string
-}
+import type { LogoutButtonProps } from './LogoutButton.type'
 
 export const LogoutButton = memo<LogoutButtonProps>(
   ({ onLogout, className = '' }) => {

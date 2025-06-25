@@ -1,7 +1,7 @@
 import { memo, forwardRef } from 'react'
 import { Controller } from 'react-hook-form'
 import clsx from 'clsx'
-import type { InputProps } from './types'
+import type { InputProps } from './Input.types'
 
 import { usePasswordVisibility } from '../../hooks'
 import PasswordToggle from '../PasswordToggle/PasswordToggle'

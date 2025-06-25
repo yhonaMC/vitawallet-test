@@ -4,7 +4,6 @@ export const LOGIN_FIELDS = {
   DEV_MODE: 'dev_mode'
 } as const
 
-// Input
 export const PLACEHOLDERS = {
   EMAIL: 'juan@gmail.com',
   PASSWORD: 'Escribe tu contraseña'
@@ -26,7 +25,6 @@ export const VALIDATION_MESSAGES = {
 
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-// Button
 export const BUTTON_VARIANTS = {
   PRIMARY: 'blue',
   SECONDARY: 'white'
@@ -39,7 +37,6 @@ export const INPUT_TYPES = {
   NUMBER: 'number'
 } as const
 
-// Card
 export const CARD_STYLES =
   'w-[488px] h-[117px] bg-white-400 shadow-md rounded-lg flex flex-col justify-center px-4 font-sans'
 
@@ -57,7 +54,6 @@ export const STORAGE_KEYS = {
   FIRST_NAME: 'first_name'
 } as const
 
-// Auth
 export const AUTH_ERRORS = {
   INVALID_CREDENTIALS: 'Credenciales inválidas',
   NETWORK_ERROR: 'Error de conexión. Verifica tu internet',
@@ -66,17 +62,15 @@ export const AUTH_ERRORS = {
   UNKNOWN_ERROR: 'Ha ocurrido un error inesperado'
 } as const
 
-// Navigation
 export const navigation = [
-  { name: 'Inicio', href: '/Dashboard' },
+  { name: 'Inicio', href: '/dashboard' },
   { name: 'Transferir', href: '#' },
   { name: 'Recargar', href: '#' },
-  { name: 'Intercambiar', href: '/Exchange' },
+  { name: 'Intercambiar', href: '/exchange' },
   { name: 'Perfil', href: '#' },
   { name: 'Ayuda', href: '#' }
 ] as const
 
-// TransactionRow
 export const VARIANT_STYLES = {
   default: 'text-black-100 font-semibold text-base',
   highlight: 'text-blue-100 font-semibold text-base'
@@ -87,7 +81,6 @@ export const SPACING_STYLES = {
   last: 'mt-2'
 } as const
 
-// Record
 export const RECORD_STYLES = {
   container: 'bg-white rounded-lg max-h-[34rem] overflow-y-auto',
   title: 'font-sans font-normal text-2xl mt-12 mb-4'
@@ -98,4 +91,41 @@ export const RECORD_LABELS = {
   emptyMessage: 'No hay transacciones disponibles'
 } as const
 
-// TransactionItem
+export const TRANSACTION_CATEGORY_DESCRIPTIONS = {
+  transfer: 'Transferiste',
+  income: 'Ingreso',
+  exchange: 'Intercambiaste'
+} as const
+
+export const TRANSACTION_DEFAULTS = {
+  description: 'Sin descripción',
+  amount: '0',
+  currency: ''
+} as const
+
+export const TRANSACTION_ITEM_STYLES = {
+  container:
+    'flex justify-between py-4 border-b border-grey-200 transition-colors hover:bg-gray-50',
+  description: 'text-black-100 text-base !font-normal',
+  value: '!font-[600] flex w-fit justify-end items-end gap-1',
+  positive: 'text-blue-200',
+  negative: 'text-red-100',
+  interchanged: 'text-black-100',
+  currency: 'text-lg !font-[600]',
+  valueContainer: 'flex gap-1'
+} as const
+
+export const TRANSACTION_TYPE_CONFIG = {
+  transfer: {
+    prefix: '-',
+    styleClass: 'negative'
+  },
+  income: {
+    prefix: '+',
+    styleClass: 'positive'
+  },
+  exchange: {
+    prefix: '',
+    styleClass: 'interchanged'
+  }
+} as const

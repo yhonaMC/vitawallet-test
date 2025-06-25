@@ -7,7 +7,7 @@ import {
 } from '@headlessui/react'
 // import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useLocation } from 'react-router-dom'
-import type { LayoutProps } from './type'
+import type { LayoutProps } from './Layout.type'
 import { useAuthContext } from '../../context/AuthContext'
 import { useSidebar } from '../../hooks/useSidebar'
 import { MobileHeader } from '../MobileHeader/MobileHeader'

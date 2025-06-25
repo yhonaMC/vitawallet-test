@@ -1,5 +1,5 @@
 import { ArrayBalance, formatCurrency, type CurrencyType } from '../../utils'
-import type { CardsProps } from './type'
+import type { CardsProps } from './Cards.type'
 
 const Cards: React.FC<CardsProps> = ({ cards }) => {
   return (

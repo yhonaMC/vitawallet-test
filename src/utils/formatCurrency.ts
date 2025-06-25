@@ -46,8 +46,19 @@ function validateAmount(amount: number | string): number {
   return numericAmount
 }
 
-function createFormatOptions(currency: CurrencyType): Intl.NumberFormatOptions {
+function createFormatOptions(
+  currency: CurrencyType,
+  hideBtcSymbol: boolean = false
+): Intl.NumberFormatOptions {
   const config = CURRENCY_CONFIGS[currency]
+
+  if (currency === 'btc' && hideBtcSymbol) {
+    return {
+      style: 'decimal',
+      minimumFractionDigits: config.decimals,
+      maximumFractionDigits: config.decimals
+    }
+  }
 
   return {
     style: 'currency',
@@ -61,14 +72,15 @@ function createFormatOptions(currency: CurrencyType): Intl.NumberFormatOptions {
 export function formatCurrency(
   amount: number | string,
   currency: CurrencyType | string,
-  locale: string = 'en-US'
+  locale: string = 'en-US',
+  hideBtcSymbol: boolean = false
 ): string {
   try {
     const validatedAmount = validateAmount(amount)
     const standardCurrency =
       typeof currency === 'string' ? getStandardCurrency(currency) : currency
 
-    const formatOptions = createFormatOptions(standardCurrency)
+    const formatOptions = createFormatOptions(standardCurrency, hideBtcSymbol)
 
     return new Intl.NumberFormat(locale, formatOptions).format(validatedAmount)
   } catch (error) {

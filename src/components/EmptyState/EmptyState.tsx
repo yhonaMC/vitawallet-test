@@ -1,9 +1,5 @@
 import { memo } from 'react'
-
-interface EmptyStateProps {
-  message: string
-  className?: string
-}
+import type { EmptyStateProps } from './EmptyState.type'
 
 const EMPTY_STATE_STYLES = {
   container:

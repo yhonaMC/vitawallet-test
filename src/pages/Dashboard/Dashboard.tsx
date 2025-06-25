@@ -5,17 +5,25 @@ import { useAuth, useDataTransactions } from '../../hooks'
 
 const Dashboard = () => {
   const { user } = useAuth()
-  const { balance, transactions } = useDataTransactions()
+  const { balance, transactions, isLoading } = useDataTransactions()
   const displayName = user?.attributes?.first_name
 
   return (
     <>
       <div>
         <Header name={displayName} />
-        <div className="mt-24">
-          <Cards cards={balance} />
-        </div>
-        <Record transactions={transactions} />
+        {isLoading ? (
+          <div className="flex justify-center items-center h-screen">
+            <div className="animate-spin rounded-full h-24 w-24 border-t-2 border-b-2 border-blue-200"></div>
+          </div>
+        ) : (
+          <>
+            <div className="mt-24">
+              <Cards cards={balance} />
+            </div>
+            <Record transactions={transactions} />
+          </>
+        )}
       </div>
     </>
   )

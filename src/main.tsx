@@ -8,6 +8,7 @@ import { AuthProvider } from './context/AuthContext'
 import Dashboard from './pages/Dashboard/Dashboard'
 import './index.css'
 import { Toaster } from 'react-hot-toast'
+import Exchange from './pages/Exchange/Exchange'
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return <AuthProvider>{children}</AuthProvider>
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           {
             path: '/dashboard',
             element: <Dashboard />
+          },
+          {
+            path: '/exchange',
+            element: <Exchange />
           }
         ]
       }

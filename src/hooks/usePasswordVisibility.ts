@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react'
 
-// Custom hook for password visibility management - Single Responsibility
 export const usePasswordVisibility = () => {
   const [isVisible, setIsVisible] = useState(false)
 

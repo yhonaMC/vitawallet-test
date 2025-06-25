@@ -152,7 +152,7 @@ export const useAuth = (): UseAuthReturn => {
         }
 
         const { data, headers } = response
-        console.log('data', data)
+
         setStorageItem(STORAGE_KEYS.ACCESS_TOKEN, headers['access-token'])
         setStorageItem(STORAGE_KEYS.UID, headers.uid)
         setStorageItem(STORAGE_KEYS.EXPIRY, headers.expiry)

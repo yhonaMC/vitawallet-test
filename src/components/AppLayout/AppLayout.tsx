@@ -1,8 +1,5 @@
-import { memo, type ReactNode } from 'react'
-
-interface AppLayoutProps {
-  children: ReactNode
-}
+import { memo } from 'react'
+import type { AppLayoutProps } from './AppLayout.type'
 
 const AppLayout = memo<AppLayoutProps>(({ children }) => {
   return <>{children}</>

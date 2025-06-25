@@ -1,10 +1,5 @@
 import { memo } from 'react'
-
-interface LoadingSpinnerProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl'
-  color?: 'blue' | 'white' | 'gray'
-  className?: string
-}
+import type { LoadingSpinnerProps } from './LoadingSpinner.type'
 
 const LoadingSpinner = memo<LoadingSpinnerProps>(
   ({ size = 'md', color = 'blue', className = '' }) => {

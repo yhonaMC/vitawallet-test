@@ -1,11 +1,7 @@
 import { memo } from 'react'
 import { NavigationList } from '../NavigationList'
 import { LogoutButton } from '../LogoutButton'
-
-interface MobileSidebarProps {
-  currentNavigation: string
-  onLogout: () => void
-}
+import type { MobileSidebarProps } from './MobileSidebar.type'
 
 export const MobileSidebar = memo<MobileSidebarProps>(
   ({ currentNavigation, onLogout }) => {
