@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { UseFormRegister, Control, FieldError } from 'react-hook-form'
 
-// Base input properties - Interface Segregation Principle
 export interface BaseInputProps {
   name: string
   placeholder?: string
@@ -13,18 +12,15 @@ export interface BaseInputProps {
   maxLength?: number
 }
 
-// Password specific properties
 export interface PasswordInputProps {
   isPassword?: boolean
 }
 
-// Icon specific properties
 export interface IconInputProps {
   iconLeft?: boolean
   icon?: string
 }
 
-// Form integration properties
 export interface FormInputProps {
   register?: UseFormRegister<any>
   control?: Control<any>
@@ -32,13 +28,11 @@ export interface FormInputProps {
   error?: FieldError | string
 }
 
-// Event handling properties
 export interface InputEventProps {
   onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void
   value?: string
 }
 
-// Complete Input props combining all interfaces
 export interface InputProps
   extends BaseInputProps,
     PasswordInputProps,
@@ -46,8 +40,6 @@ export interface InputProps
     FormInputProps,
     InputEventProps {}
 
-// Input variant types
 export type InputVariant = 'default' | 'error' | 'success'
 
-// Input size types
 export type InputSize = 'sm' | 'md' | 'lg'

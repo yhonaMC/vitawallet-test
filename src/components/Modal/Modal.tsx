@@ -25,10 +25,9 @@ export const Modal: React.FC<ModalProps> = ({
         className="fixed inset-0"
         style={{ zIndex: 99999 }}
         open={open}
-        onClose={() => {}} // Prevenir cierre automático
-        static // Prevenir cierre al hacer click fuera
+        onClose={() => {}}
+        static
       >
-        {/* Overlay oscuro de fondo */}
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -47,7 +46,6 @@ export const Modal: React.FC<ModalProps> = ({
           />
         </Transition.Child>
 
-        {/* Contenedor del modal */}
         <div className="fixed inset-0 overflow-y-auto" style={{ zIndex: 2 }}>
           <div className="flex min-h-full items-center justify-center p-4 text-center">
             <Transition.Child
@@ -97,6 +95,5 @@ export const Modal: React.FC<ModalProps> = ({
     </Transition>
   )
 
-  // Renderizar el modal usando createPortal para evitar conflictos de z-index
   return createPortal(modalContent, document.body)
 }

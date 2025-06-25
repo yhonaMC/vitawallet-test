@@ -16,7 +16,6 @@ interface UseButtonStylesProps {
   className?: string
 }
 
-// Custom hook for button styling logic - Single Responsibility
 export const useButtonStyles = ({
   color = 'blue',
   variant = 'solid',
@@ -30,14 +29,12 @@ export const useButtonStyles = ({
     const baseClasses =
       'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
 
-    // Size classes
     const sizeClasses = {
       sm: 'px-3 py-2 text-sm h-9',
       md: 'px-4 py-3 text-base h-12',
       lg: 'px-6 py-4 text-lg h-14'
     }
 
-    // Color and variant classes
     const getColorClasses = () => {
       if (disabled || isLoading) {
         return 'bg-grey-100 text-grey-200 cursor-not-allowed'

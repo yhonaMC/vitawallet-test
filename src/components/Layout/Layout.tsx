@@ -5,7 +5,6 @@ import {
   DialogPanel,
   TransitionChild
 } from '@headlessui/react'
-// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useLocation } from 'react-router-dom'
 import type { LayoutProps } from './Layout.type'
 import { useAuthContext } from '../../context/AuthContext'

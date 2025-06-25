@@ -8,5 +8,5 @@
     linear-gradient(180deg, #0a667f 0%, #0a667f 100%);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: bottom; /* Coloca la imagen en la parte inferior */
+  background-position: bottom;
 }
