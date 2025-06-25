@@ -1,9 +1,9 @@
 import { memo, forwardRef } from 'react'
-import type { ButtonProps } from './Button.types'
 import { useButtonStyles } from '../../hooks/useButtonStyles'
+import { ButtonProps } from './Button.types'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
-const Button = memo(
+export const Button = memo(
   forwardRef<HTMLButtonElement, ButtonProps>(
     (
       {
@@ -91,5 +91,3 @@ const Button = memo(
 )
 
 Button.displayName = 'Button'
-
-export default Button

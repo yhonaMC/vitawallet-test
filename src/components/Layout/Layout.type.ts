@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface LayoutProps {
-  children: JSX.Element
+  children: ReactNode
 }

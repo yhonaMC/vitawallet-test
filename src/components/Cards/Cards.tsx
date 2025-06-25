@@ -1,7 +1,7 @@
 import { ArrayBalance, formatCurrency, type CurrencyType } from '../../utils'
 import type { CardsProps } from './Cards.type'
 
-const Cards: React.FC<CardsProps> = ({ cards }) => {
+export const Cards: React.FC<CardsProps> = ({ cards }) => {
   return (
     <>
       <h1 className="font-sans text-2xl font-normal flex justify-center md:justify-start">
@@ -32,4 +32,3 @@ const Cards: React.FC<CardsProps> = ({ cards }) => {
     </>
   )
 }
-export default Cards

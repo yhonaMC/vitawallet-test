@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import clsx from 'clsx'
 import Coin from '../../assets/images/coin.png'
-import type { HeaderProps } from './types'
+import { HeaderProps } from './types'
 
 const Header = memo<HeaderProps>(
   ({ name, className = '', variant = 'default', showIcon = true }) => {

@@ -1,6 +1,6 @@
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import type { LoginFormData, LoginValidationRules } from '../pages/Login/types'
-import { EMAIL_REGEX, VALIDATION_MESSAGES, LOGIN_FIELDS } from '../constants'
+import { LoginFormData, LoginValidationRules } from '@/pages/Login/types'
+import { EMAIL_REGEX, VALIDATION_MESSAGES, LOGIN_FIELDS } from '@/constants'
 
 const getValidationRules = (): LoginValidationRules => ({
   email: {

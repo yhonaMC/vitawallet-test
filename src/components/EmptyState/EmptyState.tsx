@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { EmptyStateProps } from './EmptyState.type'
+import { EmptyStateProps } from './EmptyState.type'
 
 const EMPTY_STATE_STYLES = {
   container:

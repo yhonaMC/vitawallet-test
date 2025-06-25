@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { ErrorMessageProps } from './ErrorMessage.type'
+import { ErrorMessageProps } from './ErrorMessage.type'
 
 const ErrorMessage = memo<ErrorMessageProps>(
   ({

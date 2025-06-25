@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { MobileHeaderProps } from './MobileHeader.type'
+import { MobileHeaderProps } from './MobileHeader.type'
 
 export const MobileHeader = memo<MobileHeaderProps>(
   ({ currentNavigation, onOpenSidebar }) => {

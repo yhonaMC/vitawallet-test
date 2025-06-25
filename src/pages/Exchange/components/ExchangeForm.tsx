@@ -1,8 +1,7 @@
-import Input from '../../components/Input/Input'
-import CustomSelect from '../../components/Select/Select'
-import Dollar from '../../assets/icons/dollar.svg'
-import { ArrayCrypto } from '../../utils'
-import type { ExchangeFormProps } from './type'
+import { Input, CustomSelect } from '@/components'
+import Dollar from '@/assets/icons/dollar.svg'
+import { ArrayCrypto } from '@/utils'
+import { ExchangeFormProps } from '../type'
 
 const ExchangeForm: React.FC<ExchangeFormProps> = ({
   setSelectedOptionSend,

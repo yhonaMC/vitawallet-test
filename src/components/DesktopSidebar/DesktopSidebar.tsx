@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { NavigationList } from '../NavigationList'
 import { LogoutButton } from '../LogoutButton'
-import type { DesktopSidebarProps } from './DesktopSidebar.type'
+import { DesktopSidebarProps } from './DesktopSidebar.type'
 
 export const DesktopSidebar = memo<DesktopSidebarProps>(
   ({ currentNavigation, onLogout }) => {

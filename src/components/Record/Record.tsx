@@ -9,7 +9,7 @@ import {
   TRANSACTION_DEFAULTS
 } from '../../constants'
 
-const Record = memo<RecordProps>(({ transactions = [] }) => {
+export const Record = memo<RecordProps>(({ transactions = [] }) => {
   const hasTransactions = useMemo(
     () => transactions && transactions.length > 0,
     [transactions]
@@ -66,5 +66,3 @@ const Record = memo<RecordProps>(({ transactions = [] }) => {
 })
 
 Record.displayName = 'Record'
-
-export default Record

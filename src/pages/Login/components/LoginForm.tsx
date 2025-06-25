@@ -1,11 +1,9 @@
 import { memo } from 'react'
 import type { Control } from 'react-hook-form'
-import Input from '../../../components/Input/Input'
-import Button from '../../../components/Button/Button'
-import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage'
-import { useAuth } from '../../../hooks/useAuth'
+import { Input, Button, ErrorMessage } from '@/components'
+import { useAuth } from '@/hooks'
 import type { LoginFormData, LoginValidationRules } from '../types'
-import { LABELS, LOGIN_FIELDS, PLACEHOLDERS } from '../../../constants'
+import { LABELS, LOGIN_FIELDS, PLACEHOLDERS } from '@/constants'
 
 interface LoginFormProps {
   control: Control<LoginFormData>

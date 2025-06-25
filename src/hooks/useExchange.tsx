@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { PricesResponse } from '../pages'
+import { PricesResponse } from '@/pages'
 
 const calculateValue = (
   value: string,
@@ -16,7 +16,7 @@ const calculateValue = (
   }
 }
 
-const useExchangeRates = (
+export const useExchange = (
   prices: PricesResponse,
   selectedOptionSend: string,
   selectedOptionReceived: string,
@@ -47,5 +47,3 @@ const useExchangeRates = (
     editingField
   ])
 }
-
-export default useExchangeRates

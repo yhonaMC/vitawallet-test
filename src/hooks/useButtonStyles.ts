@@ -4,7 +4,7 @@ import type {
   ButtonColor,
   ButtonVariant,
   ButtonSize
-} from '../components/Button/Button.types'
+} from '@/components/Button/Button.types'
 
 interface UseButtonStylesProps {
   color?: ButtonColor

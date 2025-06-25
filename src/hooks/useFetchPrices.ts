@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
 import { getPrices } from '../api/get'
-import type { PricesResponse } from '../pages/Exchange/type'
+import { PricesResponse } from '../pages/Exchange/type'
 
 interface UseFetchPricesOptions {
   enablePolling?: boolean
@@ -31,7 +31,7 @@ export const useFetchPrices = (
   const [prices, setPrices] = useState<PricesResponse | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const intervalRef = useRef<number | null>(null)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const isMountedRef = useRef(true)
   const getCachedPrices = useCallback((): {
     prices: PricesResponse | null

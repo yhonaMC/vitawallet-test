@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getProfile } from '../api/get/profile'
-import { getTransactions, type Empty } from '../api/get'
-import type { CardsArray } from '../pages/Dashboard'
+import { getProfile } from '@/api/get/profile'
+import { getTransactions, Empty } from '@/api/get'
+import { CardsArray } from '@/pages/Dashboard'
 
 interface CurrencyAmount {
   currency: string

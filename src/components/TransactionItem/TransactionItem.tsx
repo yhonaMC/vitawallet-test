@@ -1,11 +1,8 @@
 import { memo } from 'react'
 import clsx from 'clsx'
-import { formatCurrency } from '../../utils'
-import {
-  TRANSACTION_ITEM_STYLES,
-  TRANSACTION_TYPE_CONFIG
-} from '../../constants'
-import type { TransactionItemProps } from './TrasactionItem.type'
+import { formatCurrency } from '@/utils'
+import { TRANSACTION_ITEM_STYLES, TRANSACTION_TYPE_CONFIG } from '@/constants'
+import { TransactionItemProps } from './TrasactionItem.type'
 
 export const TransactionItem = memo<TransactionItemProps>(
   ({ description, value, currency, transactionType }) => {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { navigation } from '../constants'
+import { navigation } from '@/constants'
 
 interface UseCurrentNavigationReturn {
   currentNavigation: string

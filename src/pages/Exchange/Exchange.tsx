@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { ArrayCrypto } from '../../utils'
-import { postExchange } from '../../api/post/exchange'
-import { useFetchPrices } from '../../hooks/useFetchPrices'
-import useExchange from '../../hooks/useExchange'
+import { ArrayCrypto } from '@/utils'
+import { postExchange } from '@/api/post/exchange'
+import { useFetchPrices, useExchange, useDataTransactions } from '@/hooks'
 import toast from 'react-hot-toast'
-import Button from '../../components/Button/Button'
+import { Button } from '@/components'
 import clsx from 'clsx'
-import ExchangeResumen from './ExchangeResumen'
-import ExchangeForm from './ExchangeForm'
-import { useDataTransactions } from '../../hooks/useDataTransactions'
+
+import ExchangeForm from './components/ExchangeForm'
+
+import ExchangeResumen from './components/ExchangeResumen'
 
 const Exchange = () => {
   const [selectedOptionSend, setSelectedOptionSend] = useState(ArrayCrypto[0])

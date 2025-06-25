@@ -4,7 +4,7 @@ import type { CardTransactionsProps } from './CardTransactions.type'
 import { CARD_STYLES, TRANSACTION_LABELS } from '../../constants'
 import { useTransactionCalculations } from '../../hooks'
 
-const CardTransactions = memo<CardTransactionsProps>(
+export const CardTransactions = memo<CardTransactionsProps>(
   ({
     valueRecived,
     valueSend,
@@ -77,5 +77,3 @@ const CardTransactions = memo<CardTransactionsProps>(
 )
 
 CardTransactions.displayName = 'CardTransactions'
-
-export default CardTransactions

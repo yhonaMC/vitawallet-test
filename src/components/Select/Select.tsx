@@ -144,7 +144,7 @@ const SelectOption: React.FC<{
   </li>
 )
 
-const CustomSelect: React.FC<SelectProps> = (props) => {
+export const CustomSelect: React.FC<SelectProps> = (props) => {
   const {
     isOpen,
     selectRef,
@@ -245,5 +245,3 @@ const CustomSelect: React.FC<SelectProps> = (props) => {
     </div>
   )
 }
-
-export default CustomSelect

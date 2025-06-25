@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import { navigation } from '../../constants'
-import type { NavigationListProps } from './NavigationList.type'
+import { NavigationListProps } from './NavigationList.type'
 
 export const NavigationList = memo<NavigationListProps>(
   ({ currentNavigation, variant = 'desktop' }) => {

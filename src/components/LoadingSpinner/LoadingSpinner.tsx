@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { LoadingSpinnerProps } from './LoadingSpinner.type'
+import { LoadingSpinnerProps } from './LoadingSpinner.type'
 
 const LoadingSpinner = memo<LoadingSpinnerProps>(
   ({ size = 'md', color = 'blue', className = '' }) => {

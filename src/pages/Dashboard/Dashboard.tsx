@@ -1,7 +1,5 @@
-import { Header } from '../../components'
-import Cards from '../../components/Cards/Cards'
-import Record from '../../components/Record/Record'
-import { useAuth, useDataTransactions } from '../../hooks'
+import { Header, Cards, Record } from '@/components'
+import { useAuth, useDataTransactions } from '@/hooks'
 
 const Dashboard = () => {
   const { user } = useAuth()

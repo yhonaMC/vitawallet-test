@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { type CurrencyType, formatCurrency } from '../utils'
+import { CurrencyType, formatCurrency } from '@/utils'
 
 interface UseTransactionCalculationsProps {
   valueRecived?: number | string

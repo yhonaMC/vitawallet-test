@@ -1,6 +1,6 @@
 import { createContext, useContext, memo, type ReactNode } from 'react'
-import { useAuth } from '../hooks/useAuth'
-import type { DynamicListData } from '../api/post/type'
+import { useAuth } from '@/hooks'
+import { DynamicListData } from '@/api/post/type'
 
 interface AuthContextValue {
   user: DynamicListData | null

@@ -1,11 +1,10 @@
 import { memo } from 'react'
-import { useLoginForm } from '../../hooks/useLoginForm'
-import { useAuth } from '../../hooks/useAuth'
+import { useLoginForm, useAuth } from '@/hooks'
 import LoginHeader from './components/LoginHeader'
 import LoginForm from './components/LoginForm'
 import LoginIllustration from './components/LoginIllustration'
-import ImageLogin from '../../assets/images/amico.png'
-import type { LoginFormData } from './types'
+import ImageLogin from '@/assets/images/amico.png'
+import { LoginFormData } from './types'
 
 const Login = memo(() => {
   const { login, isLoading } = useAuth()

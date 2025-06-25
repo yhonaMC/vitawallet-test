@@ -1,7 +1,6 @@
-import Arrow from '../../assets/icons/arrow.svg'
-import CardTransactions from '../../components/CardTransaction/CardTransactions'
-import { Modal } from '../../components/Modal'
-import type { ExchangeResumenProps } from './type'
+import Arrow from '@/assets/icons/arrow.svg'
+import { CardTransactions, Modal } from '@/components'
+import { ExchangeResumenProps } from '../type'
 
 const ExchangeResumen: React.FC<ExchangeResumenProps> = ({
   valueRecived,

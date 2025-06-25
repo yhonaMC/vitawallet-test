@@ -5,7 +5,7 @@ import React, { Fragment, type JSX } from 'react'
 import ImageModal from '../../assets/images/modalImage.png'
 import Cancel from '../../assets/icons/cancel.svg'
 import { useNavigate } from 'react-router'
-import type { ModalProps } from './Modal.type'
+import { ModalProps } from './Modal.type'
 
 export const Modal: React.FC<ModalProps> = ({
   open,
