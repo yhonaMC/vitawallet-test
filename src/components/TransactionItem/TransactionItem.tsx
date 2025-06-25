@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { formatCurrency } from '@/utils'
+import { formatInputValue, validateCurrency } from '@/utils'
 import { TransactionItemProps } from './TrasactionItem.type'
 import clsx from 'clsx'
 
@@ -28,7 +28,7 @@ export const TransactionItem = memo<TransactionItemProps>(
         }
         role="listitem"
       >
-        <span className={clsx('text-black-100 font-semibold text-base')}>
+        <span className={clsx('text-black-100 font-normal text-base')}>
           {description}
         </span>
         <span
@@ -39,7 +39,10 @@ export const TransactionItem = memo<TransactionItemProps>(
         >
           <span className={'flex items-center gap-1'}>
             <span>{valuePrefix}</span>
-            <span>{formatCurrency(displayValue, currency, 'es-US', true)}</span>
+            <span>
+              {validateCurrency(currency, 'except-btc')}
+              {formatInputValue(displayValue, currency)}
+            </span>
           </span>
           <span className={clsx(' text-base', validateColor(transactionType))}>
             {formattedCurrency}

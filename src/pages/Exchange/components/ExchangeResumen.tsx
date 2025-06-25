@@ -31,7 +31,12 @@ const ExchangeResumen: React.FC<ExchangeResumenProps> = ({
           priceSell={priceSell}
         />
       </div>
-      <Modal open={isOpen} setOpen={setIsOpen} coin={selectedOptionSend.id} />
+      <Modal
+        open={isOpen}
+        setOpen={setIsOpen}
+        coin={selectedOptionSend.id}
+        setStep={setStep}
+      />
     </div>
   )
 }

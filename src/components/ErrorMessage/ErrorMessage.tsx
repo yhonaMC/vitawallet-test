@@ -14,7 +14,7 @@ const ErrorMessage = memo<ErrorMessageProps>(
     const baseClasses =
       variant === 'banner'
         ? 'p-4 mb-4 border border-red-300 rounded-lg bg-red-50'
-        : 'text-sm text-red-600 mt-1'
+        : 'text-sm text-red-100 mt-1'
 
     const iconClasses = variant === 'banner' ? 'w-5 h-5' : 'w-4 h-4'
 
@@ -23,7 +23,7 @@ const ErrorMessage = memo<ErrorMessageProps>(
         <div className="flex items-start">
           {showIcon && (
             <svg
-              className={`${iconClasses} text-red-500 mr-2 mt-0.5 flex-shrink-0`}
+              className={`${iconClasses} text-red-100 mr-2 mt-0.5 flex-shrink-0`}
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -39,7 +39,7 @@ const ErrorMessage = memo<ErrorMessageProps>(
             <p
               className={
                 variant === 'banner'
-                  ? 'text-red-800 font-medium'
+                  ? 'text-red-100 font-medium'
                   : 'font-medium'
               }
             >
@@ -49,7 +49,7 @@ const ErrorMessage = memo<ErrorMessageProps>(
           {onClose && variant === 'banner' && (
             <button
               type="button"
-              className="ml-3 text-red-400 hover:text-red-600 transition-colors duration-200"
+              className="ml-3 text-red-100 hover:text-red-600 transition-colors duration-200"
               onClick={onClose}
               aria-label="Cerrar mensaje de error"
             >

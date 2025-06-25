@@ -1,7 +1,11 @@
 import { Controller } from 'react-hook-form'
 import { Input, CustomSelect } from '@/components'
 import Dollar from '@/assets/icons/dollar.svg'
-import { formatInputValue, handleInputValidation } from '@/utils'
+import {
+  formatInputValue,
+  formatBalanceDisplay,
+  handleInputValidation
+} from '@/utils'
 import { ArrayCrypto } from '@/constants'
 import { ExchangeFormProps, valueSelect } from '../type'
 
@@ -60,7 +64,10 @@ const ExchangeForm: React.FC<ExchangeFormProps> = ({
           </h1>
           <h3 className="font-semibold text-base text-blue-200 mb-12">
             Saldo disponible: ${' '}
-            {(balance[selectedOptionSend.id] || 0).toLocaleString('es-CL')}{' '}
+            {formatBalanceDisplay(
+              balance[selectedOptionSend.id] || 0,
+              selectedOptionSend.id
+            )}{' '}
             {selectedOptionSend.id.toUpperCase()}
           </h3>
         </div>
@@ -91,7 +98,7 @@ const ExchangeForm: React.FC<ExchangeFormProps> = ({
                       type="text"
                       placeholder="0,00"
                       value={formatInputValue(
-                        field.value,
+                        field.value || '',
                         selectedOptionSend.id
                       )}
                       onChange={(e) =>
@@ -101,6 +108,7 @@ const ExchangeForm: React.FC<ExchangeFormProps> = ({
                       icon={Dollar}
                       className="flex-1"
                       disabled={false}
+                      maxLength={20}
                     />
                   )}
                 />
@@ -132,7 +140,7 @@ const ExchangeForm: React.FC<ExchangeFormProps> = ({
                       type="text"
                       placeholder="0,00"
                       value={formatInputValue(
-                        field.value,
+                        field.value || '',
                         selectedOptionReceived.id
                       )}
                       onChange={(e) =>
@@ -143,6 +151,7 @@ const ExchangeForm: React.FC<ExchangeFormProps> = ({
                       }
                       className="flex-1"
                       disabled={false}
+                      maxLength={20}
                     />
                   )}
                 />

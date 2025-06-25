@@ -44,7 +44,7 @@ export const Record = memo<RecordProps>(({ transactions = [] }) => {
   if (!hasTransactions) {
     return <EmptyState message={RECORD_LABELS.emptyMessage} />
   }
-
+  console.log(transactionItems)
   return (
     <section aria-label="Historial de transacciones">
       <h2 className="font-sans font-normal text-2xl mt-12 mb-4">

@@ -10,6 +10,7 @@ export interface BaseInputProps {
   className?: string
   disabled?: boolean
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
+  maxLength?: number
 }
 
 // Password specific properties

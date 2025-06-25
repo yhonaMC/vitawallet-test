@@ -17,7 +17,7 @@ interface UseFetchPricesReturn {
 }
 
 const CACHE_KEY = 'vitawallet_prices'
-const CACHE_DURATION = 5 * 60 * 1000
+const CACHE_DURATION = 1 * 60 * 1000
 
 export const useFetchPrices = (
   options: UseFetchPricesOptions = {}

@@ -48,7 +48,7 @@ const Exchange = () => {
 
   const { prices, isLoading, error, getPrice, refetchPrices } = useFetchPrices({
     enablePolling: true,
-    pollingInterval: 10000,
+    pollingInterval: 30000,
     shouldFetch: true
   })
 
@@ -86,13 +86,14 @@ const Exchange = () => {
         toast.success('Intercambio realizado exitosamente')
         await refetchPrices()
         reset()
-        setSteps(1)
         setIsOpen(true)
       } else {
+        setSteps(1)
         setIsOpen(false)
         toast.error(response.error || 'Error en el intercambio')
       }
     } catch (err) {
+      setSteps(1)
       setIsOpen(false)
       const errorMessage =
         err instanceof Error ? err.message : 'Error inesperado'

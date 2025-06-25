@@ -1,6 +1,7 @@
 import { ArrayBalance } from '@/constants'
-import { formatCurrency, CurrencyType } from '@/utils'
+import { CurrencyType, formatInputValue } from '@/utils'
 import type { CardsProps } from './Cards.type'
+import { validateCurrency } from '@/utils/validateCurrency'
 
 export const Cards: React.FC<CardsProps> = ({ cards }) => {
   return (
@@ -24,7 +25,10 @@ export const Cards: React.FC<CardsProps> = ({ cards }) => {
                 <img src={icon} alt={`icon-${currency}`} />
               </div>
               <div className="font-semibold text-2xl">
-                <h1>{formatCurrency(amount, currency as CurrencyType)}</h1>
+                <h1>
+                  {validateCurrency(currency)}
+                  {formatInputValue(String(amount), currency as CurrencyType)}
+                </h1>
               </div>
             </div>
           )
