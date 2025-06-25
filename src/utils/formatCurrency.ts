@@ -1,33 +1,17 @@
+import {
+  CURRENCY_MAPPINGS,
+  DEFAULT_CURRENCY,
+  CURRENCY_CONFIGS
+} from '@/constants'
+
 export type CurrencyType = 'usd' | 'btc' | 'usdt' | 'usdc'
-
-interface CurrencyConfig {
-  code: string
-  symbol: string
-  decimals: number
-}
-
-const CURRENCY_MAPPINGS: Record<string, CurrencyType> = {
-  usd: 'usd',
-  usdc: 'usd',
-  usdt: 'usd',
-  btc: 'btc'
-} as const
-
-const CURRENCY_CONFIGS: Record<CurrencyType, CurrencyConfig> = {
-  usd: { code: 'USD', symbol: '$', decimals: 2 },
-  btc: { code: 'BTC', symbol: '₿', decimals: 8 },
-  usdt: { code: 'USDT', symbol: '$', decimals: 2 },
-  usdc: { code: 'USDC', symbol: '$', decimals: 2 }
-} as const
-
-const DEFAULT_CURRENCY: CurrencyType = 'usd'
 
 function getStandardCurrency(currency: string): CurrencyType {
   const normalizedCurrency = currency.toLowerCase().trim()
   const standardCurrency = CURRENCY_MAPPINGS[normalizedCurrency]
 
   if (!standardCurrency) {
-    console.warn(
+    console.error(
       `Unsupported currency code: ${currency}. Falling back to ${DEFAULT_CURRENCY}`
     )
     return DEFAULT_CURRENCY

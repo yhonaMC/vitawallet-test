@@ -1,40 +1,47 @@
 import { memo } from 'react'
-import clsx from 'clsx'
 import { formatCurrency } from '@/utils'
-import { TRANSACTION_ITEM_STYLES, TRANSACTION_TYPE_CONFIG } from '@/constants'
 import { TransactionItemProps } from './TrasactionItem.type'
+import clsx from 'clsx'
 
 export const TransactionItem = memo<TransactionItemProps>(
   ({ description, value, currency, transactionType }) => {
-    const getTransactionConfig = (type: string) => {
-      const config =
-        TRANSACTION_TYPE_CONFIG[type as keyof typeof TRANSACTION_TYPE_CONFIG]
-      return config || { prefix: '', styleClass: 'positive' }
-    }
-
-    const transactionConfig = getTransactionConfig(transactionType)
-
-    const valueClasses = clsx(
-      TRANSACTION_ITEM_STYLES.value,
-      TRANSACTION_ITEM_STYLES[
-        transactionConfig.styleClass as keyof typeof TRANSACTION_ITEM_STYLES
-      ]
-    )
-
     const formattedCurrency = currency.toUpperCase()
     const displayValue = typeof value === 'number' ? value.toFixed(2) : value
 
+    const valuePrefix =
+      transactionType === 'transfer'
+        ? '-'
+        : transactionType === 'exchange'
+        ? ''
+        : '+'
+
+    const validateColor = (transactionType: string) => {
+      if (transactionType === 'transfer') return 'text-red-100'
+      if (transactionType === 'exchange') return 'text-black-100'
+      return 'text-blue-200'
+    }
+
     return (
-      <div className={TRANSACTION_ITEM_STYLES.container} role="listitem">
-        <span className={TRANSACTION_ITEM_STYLES.description}>
+      <div
+        className={
+          'flex justify-between items-center py-4 border-b border-grey-200'
+        }
+        role="listitem"
+      >
+        <span className={clsx('text-black-100 font-semibold text-base')}>
           {description}
         </span>
-        <span className={valueClasses}>
-          <span className={TRANSACTION_ITEM_STYLES.valueContainer}>
-            <span>{transactionConfig.prefix}</span>
-            {formatCurrency(displayValue, currency, 'es-US', true)}
+        <span
+          className={clsx(
+            'flex items-center gap-1 font-semibold text-base',
+            validateColor(transactionType)
+          )}
+        >
+          <span className={'flex items-center gap-1'}>
+            <span>{valuePrefix}</span>
+            <span>{formatCurrency(displayValue, currency, 'es-US', true)}</span>
           </span>
-          <span className={TRANSACTION_ITEM_STYLES.currency}>
+          <span className={clsx(' text-base', validateColor(transactionType))}>
             {formattedCurrency}
           </span>
         </span>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { ArrayCrypto } from '@/utils'
+import { useForm } from 'react-hook-form'
+import { ArrayCrypto } from '@/constants'
 import { postExchange } from '@/api/post/exchange'
 import { useFetchPrices, useExchange, useDataTransactions } from '@/hooks'
 import toast from 'react-hot-toast'
@@ -7,16 +8,18 @@ import { Button } from '@/components'
 import clsx from 'clsx'
 
 import ExchangeForm from './components/ExchangeForm'
-
 import ExchangeResumen from './components/ExchangeResumen'
+
+interface ExchangeFormData {
+  amount_sent: string
+  amount_received: string
+}
 
 const Exchange = () => {
   const [selectedOptionSend, setSelectedOptionSend] = useState(ArrayCrypto[0])
   const [selectedOptionReceived, setSelectedOptionReceived] = useState(
     ArrayCrypto[1]
   )
-  const [valueSend, setValueSend] = useState<string>('')
-  const [valueRecived, setValueRecived] = useState<string>('')
   const [editingField, setEditingField] = useState<'send' | 'receive' | null>(
     null
   )
@@ -25,7 +28,24 @@ const Exchange = () => {
 
   const { balance } = useDataTransactions()
 
-  const hasAmounts = valueSend !== '' || valueRecived !== ''
+  const {
+    control,
+    watch,
+    setValue,
+    formState: { errors },
+    reset
+  } = useForm<ExchangeFormData>({
+    defaultValues: {
+      amount_sent: '',
+      amount_received: ''
+    }
+  })
+
+  const watchedAmountSent = watch('amount_sent')
+  const watchedAmountReceived = watch('amount_received')
+
+  const hasAmounts = watchedAmountSent !== '' || watchedAmountReceived !== ''
+
   const { prices, isLoading, error, getPrice, refetchPrices } = useFetchPrices({
     enablePolling: true,
     pollingInterval: 10000,
@@ -36,16 +56,19 @@ const Exchange = () => {
     prices || {},
     selectedOptionSend.id,
     selectedOptionReceived.id,
-    valueSend,
-    valueRecived,
+    watchedAmountSent,
+    watchedAmountReceived,
     editingField || '',
-    setValueSend,
-    setValueRecived
+    (value: string) => setValue('amount_sent', value),
+    (value: string) => setValue('amount_received', value)
   )
 
   const priceSell = getPrice(selectedOptionSend.id, selectedOptionReceived.id)
   const isFormValid =
-    valueSend !== '' && valueRecived !== '' && !isLoading && !error
+    watchedAmountSent !== '' &&
+    watchedAmountReceived !== '' &&
+    !isLoading &&
+    !error
 
   const handleExchange = async () => {
     if (!isFormValid) return
@@ -54,7 +77,7 @@ const Exchange = () => {
       const body = {
         currency_sent: selectedOptionSend.id,
         currency_received: selectedOptionReceived.id,
-        amount_sent: Number(valueSend)
+        amount_sent: Number(watchedAmountSent.replace(/,/g, ''))
       }
 
       const response = await postExchange(body)
@@ -62,8 +85,7 @@ const Exchange = () => {
       if (!response?.error) {
         toast.success('Intercambio realizado exitosamente')
         await refetchPrices()
-        setValueSend('')
-        setValueRecived('')
+        reset()
         setSteps(1)
         setIsOpen(true)
       } else {
@@ -103,16 +125,14 @@ const Exchange = () => {
     setSelectedOptionReceived,
     setSelectedOptionSend,
     setEditingField,
-    setValueRecived,
-    valueRecived,
-    valueSend,
-    setValueSend,
-    balance: balanceObject
+    balance: balanceObject,
+    control,
+    errors
   }
 
   const exchangeResumenProps = {
-    valueRecived,
-    valueSend,
+    valueRecived: watchedAmountReceived,
+    valueSend: watchedAmountSent,
     selectedOptionSend,
     selectedOptionReceived,
     priceSell: priceSell || 0,

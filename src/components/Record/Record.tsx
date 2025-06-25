@@ -4,7 +4,6 @@ import { EmptyState } from '../EmptyState/EmptyState'
 import type { RecordProps } from './Record.type'
 import {
   RECORD_LABELS,
-  RECORD_STYLES,
   TRANSACTION_CATEGORY_DESCRIPTIONS,
   TRANSACTION_DEFAULTS
 } from '../../constants'
@@ -48,9 +47,14 @@ export const Record = memo<RecordProps>(({ transactions = [] }) => {
 
   return (
     <section aria-label="Historial de transacciones">
-      <h2 className={RECORD_STYLES.title}>{RECORD_LABELS.title}</h2>
+      <h2 className="font-sans font-normal text-2xl mt-12 mb-4">
+        {RECORD_LABELS.title}
+      </h2>
 
-      <div className={RECORD_STYLES.container} role="list">
+      <div
+        className="bg-white rounded-lg max-h-[34rem] overflow-y-auto"
+        role="list"
+      >
         {transactionItems.map((item) => (
           <TransactionItem
             key={item.id}

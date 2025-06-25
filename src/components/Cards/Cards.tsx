@@ -1,4 +1,5 @@
-import { ArrayBalance, formatCurrency, type CurrencyType } from '../../utils'
+import { ArrayBalance } from '@/constants'
+import { formatCurrency, CurrencyType } from '@/utils'
 import type { CardsProps } from './Cards.type'
 
 export const Cards: React.FC<CardsProps> = ({ cards }) => {

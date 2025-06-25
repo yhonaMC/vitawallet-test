@@ -1,11 +1,17 @@
-import type { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
+import { Control, FieldErrors } from 'react-hook-form'
 
 export type BalanceItem = {
   amount: number
   currency: string
 }
 
-export type options = { id: string; icon: string }
+export interface valueSelect {
+  id: string
+  icon: string
+}
+
+export type options = valueSelect
 
 export type PricesResponse = {
   [currency: string]: {
@@ -25,17 +31,20 @@ export type PricesResponse = {
   }
 }
 
+export interface ExchangeFormData {
+  amount_sent: string
+  amount_received: string
+}
+
 export interface ExchangeFormProps {
-  setSelectedOptionSend: Dispatch<SetStateAction<options>>
-  selectedOptionSend: options
-  setSelectedOptionReceived: Dispatch<SetStateAction<options>>
-  selectedOptionReceived: options
+  setSelectedOptionSend: Dispatch<SetStateAction<valueSelect>>
+  selectedOptionSend: valueSelect
+  setSelectedOptionReceived: Dispatch<SetStateAction<valueSelect>>
+  selectedOptionReceived: valueSelect
   setEditingField: Dispatch<SetStateAction<'send' | 'receive' | null>>
-  setValueRecived: Dispatch<SetStateAction<string>>
-  valueSend: string | undefined
-  valueRecived: string
-  setValueSend: Dispatch<SetStateAction<string>>
   balance: { [currency: string]: number }
+  control: Control<ExchangeFormData>
+  errors: FieldErrors<ExchangeFormData>
 }
 
 export interface ExchangeResumenProps {

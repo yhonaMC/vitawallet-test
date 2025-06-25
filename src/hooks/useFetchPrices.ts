@@ -59,10 +59,6 @@ export const useFetchPrices = (
         timestamp
       }
       localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData))
-      console.log(
-        '✅ Prices updated in localStorage at:',
-        new Date(timestamp).toLocaleTimeString()
-      )
     } catch (error) {
       console.error('Error caching prices:', error)
     }
@@ -90,7 +86,6 @@ export const useFetchPrices = (
         if (isMountedRef.current && response?.prices) {
           setPrices(response.prices)
           setCachedPrices(response.prices)
-          console.log('🔄 Fresh prices fetched and cached successfully')
         } else {
           throw new Error('Invalid response from prices API')
         }
@@ -153,23 +148,15 @@ export const useFetchPrices = (
   }, [fetchPrices, shouldFetch])
   useEffect(() => {
     if (enablePolling && shouldFetch) {
-      console.log(
-        `🔄 Starting polling every ${pollingInterval}ms (${
-          pollingInterval / 1000
-        }s)`
-      )
       intervalRef.current = setInterval(() => {
-        console.log('⏰ Polling tick - fetching prices...')
         fetchPrices()
       }, pollingInterval)
     } else {
       if (intervalRef.current) {
         clearInterval(intervalRef.current)
         intervalRef.current = null
-        console.log('⏹️ Polling stopped')
       }
     }
-    console.log('intervalRef ID:', intervalRef.current)
 
     return () => {
       if (intervalRef.current) {

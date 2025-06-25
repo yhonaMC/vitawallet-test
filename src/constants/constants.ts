@@ -1,3 +1,23 @@
+import { CurrencyType } from '@/utils/formatCurrency'
+import Chile from '../assets/icons/chileCoin.svg'
+import Bitcoin from '../assets/icons/bitcoin.svg'
+import Tether from '../assets/icons/tether.svg'
+import Usdc from '../assets/icons/usdc.svg'
+
+export const ArrayBalance = [
+  { title: 'usd', icon: Chile },
+  { title: 'btc', icon: Bitcoin },
+  { title: 'usdt', icon: Tether },
+  { title: 'usdc', icon: Usdc }
+]
+
+export const ArrayCrypto = [
+  { id: 'usd', icon: Chile },
+  { id: 'btc', icon: Bitcoin },
+  { id: 'usdt', icon: Tether },
+  { id: 'usdc', icon: Usdc }
+]
+
 export const LOGIN_FIELDS = {
   EMAIL: 'email',
   PASSWORD: 'password',
@@ -37,9 +57,6 @@ export const INPUT_TYPES = {
   NUMBER: 'number'
 } as const
 
-export const CARD_STYLES =
-  'w-[488px] h-[117px] bg-white-400 shadow-md rounded-lg flex flex-col justify-center px-4 font-sans'
-
 export const TRANSACTION_LABELS = {
   EXCHANGE_AMOUNT: 'Monto a intercambiar',
   EXCHANGE_RATE: 'Tasa de cambio',
@@ -71,21 +88,6 @@ export const navigation = [
   { name: 'Ayuda', href: '#' }
 ] as const
 
-export const VARIANT_STYLES = {
-  default: 'text-black-100 font-semibold text-base',
-  highlight: 'text-blue-100 font-semibold text-base'
-} as const
-
-export const SPACING_STYLES = {
-  default: 'mt-1',
-  last: 'mt-2'
-} as const
-
-export const RECORD_STYLES = {
-  container: 'bg-white rounded-lg max-h-[34rem] overflow-y-auto',
-  title: 'font-sans font-normal text-2xl mt-12 mb-4'
-} as const
-
 export const RECORD_LABELS = {
   title: 'Historial',
   emptyMessage: 'No hay transacciones disponibles'
@@ -93,7 +95,7 @@ export const RECORD_LABELS = {
 
 export const TRANSACTION_CATEGORY_DESCRIPTIONS = {
   transfer: 'Transferiste',
-  income: 'Ingreso',
+  deposit: 'Recargaste',
   exchange: 'Intercambiaste'
 } as const
 
@@ -101,18 +103,6 @@ export const TRANSACTION_DEFAULTS = {
   description: 'Sin descripción',
   amount: '0',
   currency: ''
-} as const
-
-export const TRANSACTION_ITEM_STYLES = {
-  container:
-    'flex justify-between py-4 border-b border-grey-200 transition-colors hover:bg-gray-50',
-  description: 'text-black-100 text-base !font-normal',
-  value: '!font-[600] flex w-fit justify-end items-end gap-1',
-  positive: 'text-blue-200',
-  negative: 'text-red-100',
-  interchanged: 'text-black-100',
-  currency: 'text-lg !font-[600]',
-  valueContainer: 'flex gap-1'
 } as const
 
 export const TRANSACTION_TYPE_CONFIG = {
@@ -129,3 +119,25 @@ export const TRANSACTION_TYPE_CONFIG = {
     styleClass: 'interchanged'
   }
 } as const
+
+export type CurrencyConfig = {
+  code: string
+  symbol: string
+  decimals: number
+}
+
+export const CURRENCY_MAPPINGS: Record<string, CurrencyType> = {
+  usd: 'usd',
+  usdc: 'usd',
+  usdt: 'usd',
+  btc: 'btc'
+} as const
+
+export const CURRENCY_CONFIGS: Record<CurrencyType, CurrencyConfig> = {
+  usd: { code: 'USD', symbol: '$', decimals: 2 },
+  btc: { code: 'BTC', symbol: '₿', decimals: 8 },
+  usdt: { code: 'USDT', symbol: '$', decimals: 2 },
+  usdc: { code: 'USDC', symbol: '$', decimals: 2 }
+} as const
+
+export const DEFAULT_CURRENCY: CurrencyType = 'usd'

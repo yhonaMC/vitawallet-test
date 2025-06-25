@@ -1,8 +1,9 @@
 import { memo, useMemo } from 'react'
 import { TransactionRow } from '../TransactionRow/TransactionRow'
 import type { CardTransactionsProps } from './CardTransactions.type'
-import { CARD_STYLES, TRANSACTION_LABELS } from '../../constants'
+import { TRANSACTION_LABELS } from '../../constants'
 import { useTransactionCalculations } from '../../hooks'
+import { formatInputValue } from '@/utils'
 
 export const CardTransactions = memo<CardTransactionsProps>(
   ({
@@ -26,12 +27,18 @@ export const CardTransactions = memo<CardTransactionsProps>(
       priceSell
     })
 
+    const formattedSend = formatInputValue(formattedSendAmount, sendCurrency)
+    const formattedReceive = formatInputValue(
+      formattedReceiveAmount,
+      receiveCurrency
+    )
+
     const transactionData = useMemo(
       () => [
         {
           id: 'exchange-amount',
           label: TRANSACTION_LABELS.EXCHANGE_AMOUNT,
-          value: `$ ${formattedSendAmount} ${sendCurrency}`,
+          value: `${formattedSend} ${sendCurrency}`,
           variant: 'default' as const
         },
         {
@@ -43,7 +50,7 @@ export const CardTransactions = memo<CardTransactionsProps>(
         {
           id: 'total-receive',
           label: TRANSACTION_LABELS.TOTAL_RECEIVE,
-          value: `${formattedReceiveAmount} ${receiveCurrency}`,
+          value: `${formattedReceive} ${receiveCurrency}`,
           variant: 'highlight' as const
         }
       ],
@@ -58,7 +65,9 @@ export const CardTransactions = memo<CardTransactionsProps>(
 
     return (
       <div
-        className={CARD_STYLES}
+        className={
+          'w-[488px] h-[117px] bg-white-400 shadow-md rounded-lg flex flex-col justify-center px-4 font-sans'
+        }
         role="region"
         aria-label="Resumen de transacción"
       >
