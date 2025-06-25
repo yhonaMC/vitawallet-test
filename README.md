@@ -217,15 +217,6 @@ src/
 
 ## 🔧 Configuración Adicional
 
-### Variables de Entorno
-
-Crear un archivo `.env` en la raíz del proyecto:
-
-```env
-VITE_API_BASE_URL=https://api.vitawallet.com
-VITE_APP_NAME=VitaWallet
-```
-
 ### Personalización de Estilos
 
 Los estilos se pueden personalizar en:
